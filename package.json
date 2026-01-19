@@ -1,33 +1,34 @@
 {
   "name": "mellas-cafe-bar",
   "version": "0.1.0",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:cloudflare": "next build && npx @cloudflare/next-on-pages@1.13.16 && node scripts/copy-build.js",
-    "preview": "wrangler pages dev .vercel/output/static",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^4.16.15",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
-    "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "swiper": "^11.0.7",
-    "tailwind-merge": "^2.2.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swiper": "^11.1.14",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "typescript": "^5.6.3"
   }
 }

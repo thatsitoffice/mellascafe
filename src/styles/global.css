@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Theme Palette */
+  --bg: #1a1a1a;
+  --surface: #242424;
+  --text: #ffffff;
+  --text-secondary: #a1a1a1;
+  
+  /* Warm Red/Orange Accent (Tastyc style) */
+  --accent: #d64933; 
+  --muted: #3a3a3a;
+  --border: #333333;
+  
+  /* Fonts */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+}
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+  background: var(--text-secondary) !important;
+  opacity: 0.5 !important;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent) !important;
+  opacity: 1 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--text) !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

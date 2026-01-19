@@ -1,17 +1,10 @@
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+node_modules/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
+# build output
+dist/
+.output/
+.vercel/
 
 # misc
 .DS_Store
@@ -23,11 +16,8 @@ yarn-debug.log*
 pnpm-debug.log*
 
 # local env files
-.env*.local
+.env
+.env.production
 
-# vercel
-.vercel
-
-# cloudflare
-dist
-.wrangler
+# astro
+.astro/
