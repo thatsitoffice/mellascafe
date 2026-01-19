@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "next build && npx @cloudflare/next-on-pages@1 && node scripts/copy-build.js",
+    "build:cloudflare": "next build && npx @cloudflare/next-on-pages@1.13.16 && node scripts/copy-build.js",
     "preview": "wrangler pages dev .vercel/output/static",
     "start": "next start",
     "lint": "next lint"
@@ -21,7 +21,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.14.3",
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
