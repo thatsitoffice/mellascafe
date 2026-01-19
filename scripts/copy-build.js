@@ -6,13 +6,16 @@ const destDir = path.join(process.cwd(), 'dist');
 
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) {
-    console.error(`Source directory ${src} does not exist`);
+    console.error(`❌ Source directory ${src} does not exist`);
+    console.error('Make sure @cloudflare/next-on-pages completed successfully.');
     process.exit(1);
   }
 
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true });
+  // Remove existing dist directory to avoid conflicts
+  if (fs.existsSync(dest)) {
+    fs.rmSync(dest, { recursive: true, force: true });
   }
+  fs.mkdirSync(dest, { recursive: true });
 
   const entries = fs.readdirSync(src, { withFileTypes: true });
 
@@ -29,9 +32,10 @@ function copyDir(src, dest) {
 }
 
 try {
+  console.log('📦 Copying build output to dist/...');
   copyDir(sourceDir, destDir);
-  console.log('✓ Build output copied to dist/');
+  console.log('✅ Build output successfully copied to dist/');
 } catch (error) {
-  console.error('Error copying build output:', error);
+  console.error('❌ Error copying build output:', error.message);
   process.exit(1);
 }

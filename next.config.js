@@ -12,6 +12,16 @@ const nextConfig = {
       },
     ],
   },
+  // Optimize bundle size for Cloudflare Pages
+  swcMinify: true,
+  // Disable unnecessary headers
+  poweredByHeader: false,
+  // Optimize for Cloudflare Pages Edge Runtime
+  experimental: {
+    // Enable if needed for better Cloudflare Pages compatibility
+  },
+  // Compression handled by Cloudflare
+  compress: false,
 };
 
 module.exports = nextConfig;

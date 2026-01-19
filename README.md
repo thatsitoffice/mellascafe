@@ -25,6 +25,29 @@ Modern React/Next.js implementation of the Mella's Café homepage.
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
+## Deployment auf Cloudflare Pages
+
+Das Projekt ist für Cloudflare Pages optimiert.
+
+1. Repository zu Cloudflare Pages verbinden
+2. Build-Einstellungen (automatisch via `cloudflare-pages.yaml`):
+   - **Build command:** `npm run build:cloudflare`
+   - **Build output directory:** `dist`
+   - **Node version:** 22.x
+
+Die `cloudflare-pages.yaml` Datei wird automatisch erkannt. Alternativ können die Einstellungen auch manuell im Dashboard konfiguriert werden.
+
+### Lokaler Build für Cloudflare Pages
+
+```bash
+npm run build:cloudflare
+```
+
+Dies führt aus:
+1. Next.js Build
+2. `@cloudflare/next-on-pages` Konvertierung
+3. Kopierung nach `dist/` für Cloudflare Pages
+
 ## Customization
 
 - **Colors:** Edit CSS variables in `app/globals.css` (specifically `--accent`).
