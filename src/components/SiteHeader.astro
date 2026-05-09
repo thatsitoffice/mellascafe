@@ -2,11 +2,11 @@
 import { site } from "@/config/site";
 
 const nav = [
-  { href: "#vorteile", label: "Vorteile" },
-  { href: "#karte", label: "Karte" },
+  { href: "#vorteile", label: "Advantages" },
+  { href: "#karte", label: "View menu" },
   { href: "#events", label: "Events" },
-  { href: "#stimmung", label: "Atmosphäre" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "#location", label: "Location" },
+  { href: "#kontakt", label: "Contact" },
 ];
 ---
 
@@ -51,6 +51,21 @@ const nav = [
       }
     </nav>
     <div class="flex items-center gap-2">
+      <div class="hidden items-center gap-2 md:flex">
+        <a
+          href={site.social.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-stone-300 transition hover:border-gold-500/35 hover:text-gold-300"
+        >
+          Instagram ↗
+        </a>
+        <div class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-stone-300">
+          EN
+          <span class="px-1 text-stone-600">/</span>
+          DE
+        </div>
+      </div>
       <a
         href={site.bookingUrl}
         target="_blank"
@@ -61,7 +76,7 @@ const nav = [
           class="absolute inset-0 -translate-x-full bg-card-shine bg-[length:200%_100%] opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100"
           aria-hidden="true"
         />
-        <span class="relative">Tisch reservieren</span>
+        <span class="relative">Book</span>
       </a>
       <button
         type="button"
@@ -102,7 +117,15 @@ const nav = [
         rel="noopener noreferrer"
         class="mt-2 rounded-full bg-gold-500 px-4 py-3 text-center text-sm font-semibold text-ink-950"
       >
-        Zur Buchung
+        Book
+      </a>
+      <a
+        href={site.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-stone-200"
+      >
+        Instagram ↗
       </a>
     </div>
   </div>

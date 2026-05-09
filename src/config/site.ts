@@ -8,6 +8,8 @@ export const site = {
   bookingUrl:
     import.meta.env.PUBLIC_BOOKING_URL ?? "https://example.com/ihr-buchungstool",
   crmFormAction: import.meta.env.PUBLIC_CRM_FORM_ACTION ?? "",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Mella%E2%80%99s%20Caf%C3%A9%20%26%20Loungebar",
   address: {
     street: "Musterstraße 12",
     zip: "12345",

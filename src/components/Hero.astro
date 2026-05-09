@@ -4,7 +4,7 @@ import { site } from "@/config/site";
 
 <section
   id="top"
-  class="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pb-24 pt-28 md:pb-32 md:pt-36"
+  class="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pb-20 pt-28 md:pb-24 md:pt-36"
 >
   <div class="absolute inset-0 -z-20 bg-ink-950" aria-hidden="true"></div>
   <div
@@ -36,53 +36,82 @@ import { site } from "@/config/site";
   </div>
 
   <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-    <p
-      class="reveal mb-4 inline-flex items-center gap-2 rounded-full border border-gold-500/25 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold-400"
-    >
-      Café · Lounge · Bar
-    </p>
-    <h1
-      class="reveal reveal-delay-1 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-stone-50 sm:text-5xl md:text-6xl lg:text-7xl"
-    >
-      <span class="text-gradient-gold">{site.name}</span>
-      <span class="mt-2 block text-2xl font-normal text-stone-300 sm:text-3xl md:text-4xl"
-        >{site.tagline}</span
-      >
-    </h1>
-    <p
-      class="reveal reveal-delay-2 mt-6 max-w-2xl text-lg text-stone-400 md:text-xl"
-    >
-      {site.description}
-    </p>
-    <div
-      class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4"
-    >
-      <a
-        href={site.bookingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gold-500 px-8 py-3.5 text-base font-semibold text-ink-950 shadow-xl shadow-gold-500/25 transition duration-300 hover:-translate-y-0.5 hover:shadow-gold-400/40"
-      >
-        <span
-          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-500 group-hover:opacity-100 group-hover:animate-shimmer"
-          style="background-size: 200% 100%;"
-          aria-hidden="true"
-        ></span>
-        <span class="relative">Jetzt Platz sichern</span>
-      </a>
-      <a
-        href="#karte"
-        class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-base font-medium text-stone-200 backdrop-blur-sm transition duration-300 hover:border-gold-500/40 hover:bg-white/10 hover:text-gold-300"
-      >
-        Speise- & Getränkekarte
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </a>
+    <div class="grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
+      <div class="lg:col-span-7">
+        <p
+          class="reveal mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-stone-200"
+        >
+          Open to <span class="text-gradient-gold">all</span>
+        </p>
+        <h1
+          class="reveal reveal-delay-1 font-display text-5xl font-semibold leading-[1.0] tracking-tight text-stone-50 sm:text-6xl md:text-7xl"
+        >
+          <span class="text-gradient-gold">{site.name}</span>
+        </h1>
+        <p class="reveal reveal-delay-2 mt-6 max-w-2xl text-lg text-stone-400 md:text-xl">
+          {site.description}
+        </p>
+        <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#karte"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gold-500 px-8 py-3.5 text-base font-semibold text-ink-950 shadow-xl shadow-gold-500/25 transition duration-300 hover:-translate-y-0.5 hover:bg-gold-400"
+          >
+            <span
+              class="absolute inset-0 -translate-x-full bg-card-shine bg-[length:200%_100%] opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100"
+              aria-hidden="true"
+            />
+            <span class="relative">View menu</span>
+          </a>
+          <a
+            href={site.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-base font-medium text-stone-200 backdrop-blur-sm transition duration-300 hover:border-gold-500/40 hover:bg-white/10 hover:text-gold-300"
+          >
+            Book
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur">
+          <p class="text-sm font-semibold text-stone-100">Opening hours</p>
+          <div class="mt-4 space-y-3 text-sm text-stone-400">
+            {
+              site.openingHours.slice(0, 3).map((row) => (
+                <div class="flex items-start justify-between gap-4 border-b border-white/5 pb-2 last:border-0">
+                  <span class="text-stone-300">{row.days}</span>
+                  <span class="text-right">{row.hours}</span>
+                </div>
+              ))
+            }
+          </div>
+          <p class="mt-5 text-xs text-stone-500">
+            Für Feiertage & Sonderöffnungen: bitte Events/Instagram prüfen.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="#events"
+              class="inline-flex items-center justify-center rounded-full border border-gold-500/35 bg-gold-500/10 px-4 py-2.5 text-xs font-semibold text-gold-300 transition hover:bg-gold-500/20"
+            >
+              Events ansehen
+            </a>
+            <a
+              href="#kontakt"
+              class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold text-stone-200 transition hover:border-gold-500/25 hover:text-gold-300"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
