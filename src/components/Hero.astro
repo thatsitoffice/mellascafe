@@ -41,7 +41,7 @@ import { site } from "@/config/site";
         <p
           class="reveal mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-stone-200"
         >
-          Open to <span class="text-gradient-gold">all</span>
+          Willkommen
         </p>
         <h1
           class="reveal reveal-delay-1 font-display text-5xl font-semibold leading-[1.0] tracking-tight text-stone-50 sm:text-6xl md:text-7xl"
@@ -60,7 +60,7 @@ import { site } from "@/config/site";
               class="absolute inset-0 -translate-x-full bg-card-shine bg-[length:200%_100%] opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100"
               aria-hidden="true"
             />
-            <span class="relative">View menu</span>
+            <span class="relative">Karte ansehen</span>
           </a>
           <a
             href={site.bookingUrl}
@@ -68,21 +68,14 @@ import { site } from "@/config/site";
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-base font-medium text-stone-200 backdrop-blur-sm transition duration-300 hover:border-gold-500/40 hover:bg-white/10 hover:text-gold-300"
           >
-            Book
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
+            Reservieren
           </a>
         </div>
       </div>
 
       <div class="lg:col-span-5">
         <div class="reveal rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur">
-          <p class="text-sm font-semibold text-stone-100">Opening hours</p>
+          <p class="text-sm font-semibold text-stone-100">Öffnungszeiten</p>
           <div class="mt-4 space-y-3 text-sm text-stone-400">
             {
               site.openingHours.slice(0, 3).map((row) => (
@@ -107,7 +100,7 @@ import { site } from "@/config/site";
               href="#kontakt"
               class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold text-stone-200 transition hover:border-gold-500/25 hover:text-gold-300"
             >
-              Contact
+              Kontakt
             </a>
           </div>
         </div>

@@ -3,22 +3,18 @@ const items = [
   {
     title: "Zwei Welten, ein Ort",
     text: "Von entspanntem Kaffee bis zur Lounge-Nacht — stimmige Übergänge statt harter Wechsel.",
-    icon: "☕",
   },
   {
     title: "Ausgewählte Getränke",
     text: "Kaffeespezialitäten, Weine, Signature-Drinks und klassische Bar-Klassiker.",
-    icon: "🍸",
   },
   {
     title: "Raum für Gruppen",
     text: "Gemütliche Sitzecken und flexible Bereiche für Feiern, Business oder Date-Night.",
-    icon: "🥂",
   },
   {
     title: "Direkt zur Reservierung",
     text: "Online-Buchung mit wenigen Klicks — weniger Warten, mehr Genießen.",
-    icon: "📅",
   },
 ];
 ---
@@ -44,7 +40,7 @@ const items = [
         items.map((item, i) => (
           <article
             class:list={[
-              "reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/60 p-6 shadow-lg transition duration-500 hover:-translate-y-1 hover:border-gold-500/35 hover:shadow-[0_20px_50px_-24px_rgba(201,162,39,0.35)]",
+              "reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/50 p-7 shadow-lg transition duration-500 hover:-translate-y-1 hover:border-gold-500/30 hover:bg-ink-800/70 hover:shadow-[0_22px_60px_-28px_rgba(0,0,0,0.7)]",
               i === 1 && "reveal-delay-1",
               i === 2 && "reveal-delay-2",
               i === 3 && "reveal-delay-3",
@@ -56,12 +52,10 @@ const items = [
             >
               <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gold-500/10 blur-2xl" />
             </div>
-            <span
-              class="text-3xl transition duration-300 group-hover:scale-110"
+            <div
+              class="h-[2px] w-10 rounded bg-gradient-to-r from-gold-500/70 via-gold-300/40 to-transparent"
               aria-hidden="true"
-            >
-              {item.icon}
-            </span>
+            />
             <h3 class="mt-4 font-display text-xl font-semibold text-stone-100">
               {item.title}
             </h3>

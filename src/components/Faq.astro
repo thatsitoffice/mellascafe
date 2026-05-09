@@ -38,7 +38,9 @@ const faqs = [
             <summary class="cursor-pointer list-none font-medium text-stone-100 outline-none transition group-hover:text-gold-200 [&::-webkit-details-marker]:hidden">
               <span class="flex items-center justify-between gap-4">
                 {item.q}
-                <span class="text-gold-500 transition group-open:rotate-180">⌄</span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-stone-500 group-open:text-gold-300">
+                  Details
+                </span>
               </span>
             </summary>
             <p class="mt-3 text-sm text-stone-400">{item.a}</p>

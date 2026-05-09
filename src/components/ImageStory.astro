@@ -1,0 +1,99 @@
+---
+interface Panel {
+  eyebrow: string;
+  title: string;
+  text: string;
+  image: string;
+  align?: "left" | "right";
+}
+
+const panels: Panel[] = [
+  {
+    eyebrow: "Lounge-Atmosphäre",
+    title: "Gedämpftes Licht, klare Details",
+    text: "Ein Raum, der Gespräche zulässt. Warm, ruhig, hochwertig — ohne laut zu sein.",
+    image: "/gallery-1.jpg",
+    align: "right",
+  },
+  {
+    eyebrow: "Bar & Service",
+    title: "Drinks mit Charakter",
+    text: "Klassiker, Signature-Drinks und Empfehlungen, die zu Ihrem Abend passen.",
+    image: "/gallery-2.jpg",
+    align: "left",
+  },
+];
+---
+
+<section class="relative py-24 md:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <h2 class="font-display text-3xl font-semibold text-stone-50 md:text-4xl">
+        Ein Ort mit eigener Handschrift
+      </h2>
+      <p class="mt-4 text-stone-400 md:text-lg">
+        Große Bilder statt Icons: Stimmung, Materialien und Momente — genau so,
+        wie es sich vor Ort anfühlt.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-14 space-y-10">
+    {
+      panels.map((p, i) => (
+        <div
+          class:list={[
+            "reveal overflow-hidden border-y border-white/5 bg-ink-900/25",
+            i === 1 && "reveal-delay-1",
+          ]}
+        >
+          <div class="mx-auto grid max-w-6xl items-stretch gap-10 px-4 py-10 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-14">
+            <div
+              class:list={[
+                "lg:col-span-5",
+                p.align === "right" ? "lg:order-1" : "lg:order-2",
+              ]}
+            >
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-gold-400/90">
+                {p.eyebrow}
+              </p>
+              <h3 class="mt-4 font-display text-3xl font-semibold text-stone-100">
+                {p.title}
+              </h3>
+              <p class="mt-4 text-sm leading-relaxed text-stone-400 md:text-base">
+                {p.text}
+              </p>
+              <div
+                class="mt-7 h-px w-24 bg-gradient-to-r from-gold-500/70 to-transparent"
+                aria-hidden="true"
+              />
+            </div>
+
+            <div
+              class:list={[
+                "lg:col-span-7",
+                p.align === "right" ? "lg:order-2" : "lg:order-1",
+              ]}
+            >
+              <div class="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-950">
+                <img
+                  src={p.image}
+                  alt=""
+                  class="h-[320px] w-full object-cover transition duration-700 group-hover:scale-[1.03] md:h-[380px] lg:h-[460px]"
+                  loading="lazy"
+                  width="1400"
+                  height="900"
+                />
+                <div
+                  class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent opacity-80 transition group-hover:opacity-60"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
