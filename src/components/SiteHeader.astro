@@ -1,0 +1,141 @@
+---
+import { site } from "@/config/site";
+
+const nav = [
+  { href: "#vorteile", label: "Vorteile" },
+  { href: "#karte", label: "Karte" },
+  { href: "#events", label: "Events" },
+  { href: "#stimmung", label: "Atmosphäre" },
+  { href: "#kontakt", label: "Kontakt" },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink-950/75 backdrop-blur-xl transition-shadow duration-300 hover:shadow-[0_8px_40px_-12px_rgba(201,162,39,0.15)]"
+  id="site-header"
+>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
+  >
+    <a
+      href="#top"
+      class="group flex items-center gap-3 rounded-lg outline-none ring-gold-500/40 transition hover:opacity-90 focus-visible:ring-2"
+    >
+      <img
+        src="/logo.png"
+        alt=""
+        width="44"
+        height="44"
+        class="h-10 w-10 rounded-full object-cover opacity-90 ring-1 ring-gold-500/30 transition duration-300 group-hover:ring-gold-400/60 group-hover:brightness-110"
+        loading="eager"
+      />
+      <span
+        class="font-display text-lg font-semibold tracking-tight text-stone-100 transition group-hover:text-gold-300 sm:text-xl"
+      >
+        {site.name}
+      </span>
+    </a>
+    <nav
+      class="hidden items-center gap-1 md:flex"
+      aria-label="Hauptnavigation"
+    >
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-lg px-3 py-2 text-sm font-medium text-stone-400 transition hover:bg-white/5 hover:text-gold-300"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="flex items-center gap-2">
+      <a
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-gold-600 to-gold-500 px-4 py-2 text-sm font-semibold text-ink-950 shadow-lg shadow-gold-500/20 transition duration-300 hover:scale-[1.03] hover:shadow-gold-400/35 active:scale-[0.98] sm:px-5"
+      >
+        <span
+          class="absolute inset-0 -translate-x-full bg-card-shine bg-[length:200%_100%] opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100"
+          aria-hidden="true"
+        />
+        <span class="relative">Tisch reservieren</span>
+      </a>
+      <button
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-stone-300 transition hover:border-gold-500/40 hover:text-gold-300 md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        id="menu-toggle"
+      >
+        <span class="sr-only">Menü</span>
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    id="mobile-nav"
+    class="hidden border-t border-white/5 bg-ink-900/95 px-4 py-4 backdrop-blur-xl md:hidden"
+  >
+    <div class="flex flex-col gap-1">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-link rounded-lg px-3 py-3 text-stone-300 hover:bg-white/5 hover:text-gold-300"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-2 rounded-full bg-gold-500 px-4 py-3 text-center text-sm font-semibold text-ink-950"
+      >
+        Zur Buchung
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const panel = document.getElementById("mobile-nav");
+  if (toggle && panel) {
+    toggle.addEventListener("click", () => {
+      panel.classList.toggle("hidden");
+      toggle.setAttribute(
+        "aria-expanded",
+        String(!panel.classList.contains("hidden")),
+      );
+    });
+    panel.querySelectorAll(".mobile-link").forEach((a) => {
+      a.addEventListener("click", () => {
+        panel.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  const header = document.getElementById("site-header");
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 24) {
+      header.classList.add("shadow-[0_12px_40px_-16px_rgba(0,0,0,0.6)]");
+    } else {
+      header.classList.remove("shadow-[0_12px_40px_-16px_rgba(0,0,0,0.6)]");
+    }
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>

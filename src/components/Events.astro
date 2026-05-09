@@ -1,0 +1,62 @@
+---
+const events = [
+  {
+    date: "Jeden Freitag",
+    title: "Lounge Sessions",
+    text: "Reduzierte Beleuchtung, ruhige Playlist — Platz für Gespräch und Genuss.",
+  },
+  {
+    date: "Samstag",
+    title: "DJ & Late Night",
+    text: "Ab Mitternacht mehr Drive — ohne die Lounge zu überfordern.",
+  },
+  {
+    date: "Auf Anfrage",
+    title: "Private Events",
+    text: "Geburtstage, Teamabende, kleine Feiern — sprechen Sie uns an.",
+  },
+];
+---
+
+<section
+  id="events"
+  class="relative border-t border-white/5 bg-ink-900/30 py-24 md:py-28"
+>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <h2 class="font-display text-3xl font-semibold text-stone-50 md:text-4xl">
+        Events & Rhythmus
+      </h2>
+      <p class="mt-4 text-stone-400 md:text-lg">
+        Unser Wochenende hat eine klare Dramaturgie — Sie wählen Ihren
+        Lieblingsmoment.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {
+        events.map((ev, i) => (
+          <article
+            class:list={[
+              "reveal relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/50 p-6 transition duration-500 hover:border-wine-500/40",
+              i === 1 && "reveal-delay-1",
+              i === 2 && "reveal-delay-2",
+            ]}
+          >
+            <div
+              class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-gold-500/60 to-transparent opacity-0 transition duration-300 hover:opacity-100"
+              aria-hidden="true"
+            />
+            <p class="text-xs font-semibold uppercase tracking-widest text-gold-500/90">
+              {ev.date}
+            </p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-stone-100">
+              {ev.title}
+            </h3>
+            <p class="mt-3 text-sm text-stone-400">{ev.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

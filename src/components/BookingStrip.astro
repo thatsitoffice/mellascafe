@@ -1,0 +1,42 @@
+---
+import { site } from "@/config/site";
+---
+
+<section class="relative overflow-hidden border-y border-gold-500/20 py-16">
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-wine-600/25 via-ink-900 to-gold-600/10"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute inset-0 animate-shimmer opacity-40"
+    style="background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); background-size: 200% 100%;"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center sm:flex-row sm:justify-between sm:text-left sm:px-6 lg:px-8">
+    <div class="reveal max-w-xl">
+      <h2 class="font-display text-2xl font-semibold text-stone-50 md:text-3xl">
+        Bereit für Ihren Abend?
+      </h2>
+      <p class="mt-2 text-stone-400">
+        Reservieren Sie bequem online — wir halten Ihren Platz frei.
+      </p>
+    </div>
+    <a
+      href={site.bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="reveal reveal-delay-1 inline-flex shrink-0 items-center gap-2 rounded-full bg-gold-500 px-8 py-3.5 text-base font-semibold text-ink-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-400"
+    >
+      Zum Buchungstool
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+</section>

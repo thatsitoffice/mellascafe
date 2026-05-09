@@ -1,0 +1,76 @@
+---
+const items = [
+  {
+    title: "Zwei Welten, ein Ort",
+    text: "Von entspanntem Kaffee bis zur Lounge-Nacht — stimmige Übergänge statt harter Wechsel.",
+    icon: "☕",
+  },
+  {
+    title: "Ausgewählte Getränke",
+    text: "Kaffeespezialitäten, Weine, Signature-Drinks und klassische Bar-Klassiker.",
+    icon: "🍸",
+  },
+  {
+    title: "Raum für Gruppen",
+    text: "Gemütliche Sitzecken und flexible Bereiche für Feiern, Business oder Date-Night.",
+    icon: "🥂",
+  },
+  {
+    title: "Direkt zur Reservierung",
+    text: "Online-Buchung mit wenigen Klicks — weniger Warten, mehr Genießen.",
+    icon: "📅",
+  },
+];
+---
+
+<section
+  id="vorteile"
+  class="relative border-t border-white/5 bg-ink-900/40 py-24 md:py-28"
+>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <h2 class="font-display text-3xl font-semibold text-stone-50 md:text-4xl">
+        Warum Gäste wiederkommen
+      </h2>
+      <p class="mt-4 text-stone-400 md:text-lg">
+        Klare Erlebnisse, warme Atmosphäre und Service, der den Abend nicht
+        überlagert — sondern trägt.
+      </p>
+    </div>
+    <div
+      class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+    >
+      {
+        items.map((item, i) => (
+          <article
+            class:list={[
+              "reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/60 p-6 shadow-lg transition duration-500 hover:-translate-y-1 hover:border-gold-500/35 hover:shadow-[0_20px_50px_-24px_rgba(201,162,39,0.35)]",
+              i === 1 && "reveal-delay-1",
+              i === 2 && "reveal-delay-2",
+              i === 3 && "reveal-delay-3",
+            ]}
+          >
+            <div
+              class="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"
+              aria-hidden="true"
+            >
+              <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gold-500/10 blur-2xl" />
+            </div>
+            <span
+              class="text-3xl transition duration-300 group-hover:scale-110"
+              aria-hidden="true"
+            >
+              {item.icon}
+            </span>
+            <h3 class="mt-4 font-display text-xl font-semibold text-stone-100">
+              {item.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-400">
+              {item.text}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

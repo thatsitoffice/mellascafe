@@ -1,0 +1,62 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import { site } from "@/config/site";
+---
+
+<Layout title={`Impressum — ${site.name}`}>
+  <SiteHeader />
+  <main class="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+    <h1 class="font-display text-4xl font-semibold text-stone-50">Impressum</h1>
+    <p class="mt-6 text-sm text-stone-500">
+      Platzhalter — bitte durch Ihre rechtskonformen Angaben ersetzen (Anbieter
+      i. S. d. § 5 TMG / entsprechende lokale Vorschriften).
+    </p>
+    <section class="mt-10 space-y-6 text-stone-300">
+      <div>
+        <h2 class="font-medium text-gold-400">Angaben gemäß § 5 TMG</h2>
+        <p class="mt-2">
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.zip}
+          {site.address.city}<br />
+          {site.address.country}
+        </p>
+      </div>
+      <div>
+        <h2 class="font-medium text-gold-400">Kontakt</h2>
+        <p class="mt-2">
+          Telefon: {site.contact.phone}<br />
+          E-Mail: {site.contact.email}
+        </p>
+      </div>
+      <div>
+        <h2 class="font-medium text-gold-400">
+          Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+        </h2>
+        <p class="mt-2">[Name, Anschrift]</p>
+      </div>
+      <div>
+        <h2 class="font-medium text-gold-400">
+          EU-Streitschlichtung / Verbraucherstreitbeilegung
+        </h2>
+        <p class="mt-2 text-sm text-stone-400">
+          Die Europäische Kommission stellt eine Plattform zur
+          Online-Streitbeilegung (OS) bereit:{" "}
+          <a
+            href="https://ec.europa.eu/consumers/odr/"
+            class="text-gold-400 underline hover:text-gold-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://ec.europa.eu/consumers/odr/</a
+          >. Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht
+          bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen — bitte passen Sie diesen
+          Satz an Ihre tatsächliche Situation an.
+        </p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</Layout>

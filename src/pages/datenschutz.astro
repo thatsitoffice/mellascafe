@@ -1,0 +1,75 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import { site } from "@/config/site";
+---
+
+<Layout title={`Datenschutz — ${site.name}`}>
+  <SiteHeader />
+  <main class="mx-auto max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+    <h1 class="font-display text-4xl font-semibold text-stone-50">
+      Datenschutzerklärung
+    </h1>
+    <p class="mt-6 text-sm text-stone-500">
+      Muster / Orientierung — bitte von einer Fachperson auf Ihre konkrete
+      Website, Tools (Buchung, CRM, Analytics) und Hosting prüfen lassen.
+    </p>
+    <section class="mt-10 space-y-8 text-stone-300">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-gold-400">
+          1. Verantwortliche Stelle
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed">
+          {site.name}, {site.address.street}, {site.address.zip}
+          {site.address.city}, {site.contact.email}
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-gold-400">
+          2. Hosting (z. B. Cloudflare Pages)
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-stone-400">
+          Diese Seite wird statisch ausgeliefert. Je nach Anbieter können
+          technisch notwendige Verarbeitungen (z. B. Zugriffslogs, Sicherheit)
+          erfolgen. Ergänzen Sie hier Herkunft, Zweck und Rechtsgrundlage nach
+          Dokumentation Ihres Hosters.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-gold-400">
+          3. Kontaktformular / CRM
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-stone-400">
+          Wenn Sie das Formular nutzen, werden die von Ihnen eingegebenen Daten
+          zur Bearbeitung der Anfrage an den von uns konfigurierten Endpunkt
+          übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO
+          (Vertragsanbahnung) bzw. lit. f DSGVO (berechtigtes Interesse an der
+          Beantwortung von Anfragen), sofern anwendbar.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-gold-400">
+          4. Buchungstool
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-stone-400">
+          Verlinkungen zu externen Buchungssystemen können dazu führen, dass
+          dort eigene Cookies und Verarbeitungen stattfinden. Bitte ergänzen Sie
+          den Anbieter und die dortige Datenschutzerklärung.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-gold-400">
+          5. Ihre Rechte
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-stone-400">
+          Sie haben je nach Voraussetzungen Rechte auf Auskunft, Berichtigung,
+          Löschung, Einschränkung der Verarbeitung, Widerspruch sowie
+          Datenübertragbarkeit. Außerdem besteht ein Beschwerderecht bei einer
+          Aufsichtsbehörde.
+        </p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</Layout>

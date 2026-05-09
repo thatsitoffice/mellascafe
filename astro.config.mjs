@@ -1,23 +1,8 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
-import cloudflare from '@astrojs/cloudflare';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
+/** Statischer Build — ideal für Cloudflare Pages (Ordner `dist` als Root). */
 export default defineConfig({
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
-  output: 'server',
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
-  image: {
-    domains: ['images.unsplash.com', 'plus.unsplash.com'],
-  },
+  output: "static",
+  integrations: [tailwind({ applyBaseStyles: false })],
 });
